@@ -1,0 +1,33 @@
+# Make a new branch with current changes
+git checkout -b newBranch
+
+# Print log with minimal detail
+git log --pretty=format:"%h | %ad | %an | %s" -10
+
+# Print log with minimal detail and save 
+git log --pretty=format:"%h | %ad | %an | %s" --date=iso-strict > test.txt
+
+# Reset a single file [https://stackoverflow.com/questions/7147270/hard-reset-of-a-single-file]
+git checkout HEAD -- my-file.txt
+
+# Remove unstaged changes [https://stackoverflow.com/questions/1090309/git-undo-all-working-dir-changes-including-new-files]
+git checkout -- .
+
+# Remove credential helper
+git config --global --unset credential.helper
+
+# Amend last commit
+git commit --amend
+
+# Undo last commit
+git reset --soft HEAD~1
+
+# IF git status returns "fatal: this operation must be run in a work tree"
+vim .git/config
+# Change core.worktree="PATH" to the correct one
+
+# Configure git cred manager
+git config --global credential.helper "/mnt/c/Program Files/Git/mingw64/libexec/git-core/git-credential-manager.exe"
+
+# Pip install git (replace master with branch name)
+pip install git+https://github.com/tangentlabs/django-oscar-paypal.git@master
